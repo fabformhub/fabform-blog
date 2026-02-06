@@ -6,9 +6,6 @@ heroImage: '../../assets/blog-placeholder-3.jpg'
 
 ---
 
-
-# **Build a Complete Astro Blog: From Template Setup to a Fully Functional Contact Form with Fabform**
-
 Astro has quickly become one of the most popular static site builders thanks to its speed, simplicity, and ability to ship zero JavaScript by default. In this tutorial, you’ll build a complete static blog using the official Astro Blog template — then enhance it with a fully functional contact form powered by **Fabform**, a backend‑free form handling service perfect for static sites.
 
 You’ll walk away with:
