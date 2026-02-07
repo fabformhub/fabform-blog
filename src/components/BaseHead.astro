@@ -43,6 +43,13 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-eUpUk2tYkw3NjxEftxVvm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
