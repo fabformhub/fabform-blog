@@ -1,71 +1,206 @@
 ---
-title: "How to Set Up a Cloudflare Pages Site with a Backendless Contact Form"
-description: "Step-by-step beginner guide to creating a Cloudflare Pages website and adding a backendless contact form using Fabform."
+title: "Cloudflare Pages Contact Form Tutorial: Add a Backendless Form Without Workers"
+description: "A complete guide to adding a contact form to a Cloudflare Pages site using Fabform, without Cloudflare Workers or serverless code."
 pubDate: 2026-02-08
 heroImage: '../../assets/blog-placeholder-3.jpg'
 ---
 
-# How to Set Up a Cloudflare Pages Site with a Backendless Contact Form
+Cloudflare Pages is one of the fastest and most reliable platforms for hosting static sites. It offers global edge deployment, instant cache invalidation, and a smooth Git‑based workflow. However, Cloudflare Pages does not include built‑in form handling, and Cloudflare Workers can be overkill for something as simple as a contact form.
 
-Cloudflare Pages makes it easy to host static websites with fast, global performance. In this guide, we’ll show you **how to create a Cloudflare Pages site and add a fully functional, backendless contact form using Fabform** — no servers required.
+A backendless form service like Fabform gives you a clean, reliable way to collect submissions without writing Workers, managing KV storage, or maintaining serverless code. With a single endpoint, you can add a fully functional contact form to any Cloudflare Pages site.
 
----
+If you are exploring other static‑site form setups, these guides may also help:
 
-## 1. Create a Cloudflare Account
-
-1. Go to [https://dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up)  
-2. Create an account with your email and password  
-3. Verify your email address  
+- [Add a Serverless Contact Form to GitHub Pages](/blog/add-serverless-contact-form-github-pages)
+- [Netlify Contact Form Tutorial](/blog/netlify-contact-form-tutorial)
+- [The Fastest Way to Add Forms to Static Sites](/blog/the-fastest-way-to-add-forms-to-static-sites)
 
 ---
 
-## 2. Create a New Cloudflare Pages Project
+## Why Cloudflare Pages needs a backendless form solution
 
-1. Log in to Cloudflare  
-2. Go to **Pages → Create a project**  
-3. Connect your GitHub account to Cloudflare Pages  
-4. Select a repository for your site (you can create a new one or use an existing repo)  
-5. Click **Begin Setup**  
+Cloudflare Pages is a pure static host. It does not provide:
+
+- server‑side processing  
+- built‑in form handling  
+- email sending  
+- submission storage  
+
+You can build a form backend using Cloudflare Workers, but that requires:
+
+- writing JavaScript  
+- handling validation  
+- managing spam filtering  
+- storing submissions  
+- sending notifications  
+- maintaining code over time  
+
+Fabform removes all of this complexity by providing:
+
+- a secure form endpoint  
+- spam protection  
+- email, Slack, and webhook notifications  
+- a searchable dashboard  
+- CSV export  
+- GDPR‑friendly storage  
+
+Your Cloudflare Pages site stays static.  
+Your form becomes fully functional.
 
 ---
 
-## 3. Configure the Project
+## Step 1 — Create your Fabform endpoint
 
-1. For a simple static site:
-   - Framework preset: **None (Static Site)**  
-   - Root directory: `/`  
-   - Build command: leave blank  
-   - Output directory: leave blank  
+1. Visit https://fabform.io  
+2. Create a free account  
+3. Select “Create New Form”  
+4. Copy your unique form endpoint:
 
-2. Click **Save and Deploy**  
+```
+https://fabform.io/f/your-form-id
+```
 
-> Cloudflare Pages will automatically build and deploy your site. You’ll get a URL like:  
-> `https://your-site.pages.dev`
+If you want to compare Fabform with other services, see:  
+[Fabform vs Formspree](/blog/fabform-vs-formspree)
 
 ---
 
-## 4. Add Your HTML Files
+## Step 2 — Add your form to your Cloudflare Pages site
 
-1. In your repository, create an `index.html` file  
-2. Add your website HTML:
+Open your contact page and insert the following HTML:
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My Cloudflare Pages Site</title>
-</head>
-<body>
-  <h1>Welcome to My Site</h1>
-  <p>Contact me using the form below:</p>
+<form action="https://fabform.io/f/your-form-id" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+```
 
-  <form action="https://fabform.com/YOUR_PROJECT_KEY" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send</button>
-  </form>
-</body>
-</html>
+This works with:
+
+- plain HTML  
+- Astro  
+- Hugo  
+- Jekyll  
+- Eleventy  
+- SvelteKit (static export)  
+- Next.js (static export)  
+
+If you are using Astro specifically, see:  
+[Astro Contact Form Without Serverless Functions](/blog/astro-contact-form-without-serverless)
+
+---
+
+## Step 3 — Deploy to Cloudflare Pages
+
+Push your site to GitHub.  
+In Cloudflare Pages:
+
+1. Create a new project  
+2. Connect your repository  
+3. Select your build command and output directory  
+4. Deploy
+
+Your form is now live.
+
+---
+
+## Step 4 — Test your form
+
+Visit your deployed site and submit a test message.  
+You will see the submission appear instantly in your Fabform dashboard.
+
+---
+
+## Step 5 — Enable notifications
+
+Fabform supports:
+
+- Email notifications  
+- Slack notifications  
+- Discord notifications  
+- Webhooks for automation tools  
+
+If you want to explore alternatives to platform‑specific form systems, see:  
+[Netlify Forms Alternative for Static Sites](/blog/netlify-forms-alternative-static-sites)
+
+---
+
+## Step 6 — Add spam protection
+
+Fabform includes built‑in spam filtering, but you can add an optional honeypot field:
+
+```html
+<input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+```
+
+Bots fill this field.  
+Humans do not.  
+Fabform ignores submissions that include it.
+
+---
+
+## Step 7 — Style your form
+
+Cloudflare Pages supports any CSS approach.  
+Here is a simple example:
+
+```css
+form {
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 0.75rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+```
+
+---
+
+## Troubleshooting
+
+### Form not submitting  
+Verify your `action` attribute:
+
+```
+https://fabform.io/f/your-form-id
+```
+
+### Not receiving notifications  
+Check your Fabform notification settings.
+
+### Using Cloudflare Workers  
+Workers are optional. Fabform replaces the need for them entirely.
+
+---
+
+## Related Posts
+
+- [Add a Serverless Contact Form to GitHub Pages](/blog/add-serverless-contact-form-github-pages)  
+- [Netlify Contact Form Tutorial](/blog/netlify-contact-form-tutorial)  
+- [Astro Contact Form Without Serverless Functions](/blog/astro-contact-form-without-serverless)  
+- [Netlify Forms Not Working? Fix It Fast](/blog/netlify-forms-not-working-fix)
+
+---
+
+## Final Thoughts
+
+Cloudflare Pages is one of the best platforms for deploying static sites at global scale. By pairing it with a backendless form service, you avoid the overhead of Workers while gaining a dependable way to collect submissions. If you want a consistent form workflow across Cloudflare Pages, Netlify, GitHub Pages, and other static hosts, Fabform provides a unified approach that works everywhere.
 

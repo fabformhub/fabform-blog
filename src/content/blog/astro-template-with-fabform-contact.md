@@ -1,108 +1,102 @@
 ---
-title: "How to Build an Astro Site From a Template and Add a Working Fabform Contact Form"
-description: "Learn how to create a new Astro site from a template and integrate a fully functional Fabform contact form into your pages. No serverless functions, no backend code—just clean, modern static-site development."
-pubDate: 2025-03-01
+title: "Astro Template With Fabform Contact Form"
+description: "A ready‑to‑use Astro template that includes a fully functional contact form powered by Fabform, with no serverless functions required."
+pubDate: 2026-02-08
 heroImage: '../../assets/blog-placeholder-3.jpg'
 ---
 
-Astro makes it incredibly easy to build fast, content‑focused websites using templates. But the moment you need a working contact form, most tutorials push you toward serverless functions or backend code. That’s unnecessary. You can add a fully functional contact form to any Astro template using Fabform in minutes.
+Astro is one of the best frameworks for building fast, content‑focused websites. Many developers want a simple way to add a contact form without setting up serverless functions or backend code. This template gives you a clean starting point: an Astro project with a fully integrated Fabform contact form that works on any static host.
 
-This guide walks you through:
+If you are exploring other Astro or static‑site form setups, these guides may also help:
 
-- Creating a new Astro site from a template  
-- Adding a contact page  
-- Integrating a Fabform endpoint  
-- Adding spam protection  
-- Deploying your site with a working form  
-
-Everything is HTML‑first, zero‑backend, and works on any static host.
+- [Astro Contact Form Without Serverless Functions](/blog/astro-contact-form-without-serverless)
+- [Build an Astro Blog With a Fabform Contact Form](/blog/build-astro-blog-with-fabform-contact-form)
+- [The Fastest Way to Add Forms to Static Sites](/blog/the-fastest-way-to-add-forms-to-static-sites)
 
 ---
 
-## 1. Create a New Astro Project From a Template
+## Why this template uses Fabform
 
-Astro has an official templates gallery, but the most popular starting point is the **Astro Blog Template**.
+Astro outputs static HTML by default. This means:
 
-Create a new project:
+- no backend  
+- no server‑side processing  
+- no built‑in email sending  
+- no form submission handling  
 
-```bash
-npm create astro@latest my-astro-site
-```
+Fabform provides a backendless form endpoint that works with any static site. It includes:
 
-When prompted:
+- spam protection  
+- email, Slack, and webhook notifications  
+- a searchable dashboard  
+- CSV export  
+- GDPR‑friendly storage  
 
-- Choose **Blog** template  
-- Choose **TypeScript or JavaScript** (your preference)  
-- Choose **No** for server-side rendering  
-- Install dependencies  
-
-Then move into your project:
-
-```bash
-cd my-astro-site
-npm install
-```
-
-Start the dev server:
-
-```bash
-npm run dev
-```
-
-Your new Astro site is now running locally.
+Your Astro site stays static.  
+Your form becomes fully functional.
 
 ---
 
-## 2. Create a Fabform Endpoint
+## Project structure
 
-Go to **https://fabform.io** and:
+A typical Astro project using this template includes:
 
-1. Create a new form  
-2. Copy your unique endpoint URL, which looks like:
+```
+src/
+  pages/
+    index.astro
+    contact.astro
+  components/
+    Layout.astro
+public/
+astro.config.mjs
+package.json
+```
+
+The contact form lives in `src/pages/contact.astro`.
+
+---
+
+## Step 1 — Create your Fabform endpoint
+
+1. Visit https://fabform.io  
+2. Create a free account  
+3. Select “Create New Form”  
+4. Copy your unique form endpoint:
 
 ```
 https://fabform.io/f/your-form-id
 ```
 
-This URL is your entire backend. No serverless functions. No API routes. No configuration.
+If you want to compare Fabform with other services, see:  
+[Fabform vs Formspree](/blog/fabform-vs-formspree)
 
 ---
 
-## 3. Add a Contact Page to Your Astro Site
+## Step 2 — Add the contact form to your Astro template
 
-Inside your project, create a new page:
-
-```
-src/pages/contact.astro
-```
-
-Add the following:
+Create or edit `src/pages/contact.astro`:
 
 ```astro
 ---
 title: "Contact"
 ---
 
-<h1>Contact Me</h1>
-<p>Have a question or want to reach out? Send a message below.</p>
+<h1>Contact</h1>
 
-<form
-  action="https://fabform.io/f/your-form-id"
-  method="POST"
-  class="space-y-4 max-w-md"
->
+<form action="https://fabform.io/f/your-form-id" method="POST">
   <label>
-    <span>Your Name</span>
+    Name
     <input type="text" name="name" required />
   </label>
 
   <label>
-    <span>Email</span>
+    Email
     <input type="email" name="email" required />
   </label>
 
   <label>
-    <span>Message</span>
+    Message
     <textarea name="message" required></textarea>
   </label>
 
@@ -110,85 +104,124 @@ title: "Contact"
 </form>
 ```
 
-Your form now works instantly.
+This form works immediately.  
+No JavaScript.  
+No serverless functions.  
+No backend code.
 
 ---
 
-## 4. Add a Success Page (Optional but Recommended)
+## Step 3 — Style your form
 
-Create:
-
-```
-src/pages/success.astro
-```
-
-Add:
+Add a `<style>` block to the same file or use a global stylesheet:
 
 ```astro
----
-title: "Message Sent"
----
+<style>
+  form {
+    max-width: 500px;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-<h1>Thanks for your message!</h1>
-<p>I’ll get back to you soon.</p>
+  input, textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  button {
+    padding: 0.75rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+</style>
 ```
 
-Update your form to redirect after submission:
+---
 
-```html
-<form
-  action="https://fabform.io/f/your-form-id?redirect=/success"
-  method="POST"
->
+## Step 4 — Test your form
+
+Start your local server:
+
 ```
+npm run dev
+```
+
+Visit:
+
+```
+http://localhost:4321/contact
+```
+
+Submit a test message.  
+You will see it appear instantly in your Fabform dashboard.
 
 ---
 
-## 5. Add Spam Protection (No CAPTCHA Needed)
+## Step 5 — Deploy your Astro template
 
-Fabform includes automatic spam filtering, but you can add a honeypot field:
+This template works on any static host, including:
 
-```html
-<input type="text" name="_honeypot" style="display:none" />
-```
-
-Bots fill it. Humans don’t. Spam disappears.
-
----
-
-## 6. Deploy Your Astro Site
-
-This setup works on:
-
-- Cloudflare Pages  
 - Netlify  
 - Vercel  
+- Cloudflare Pages  
 - GitHub Pages  
-- Any static host  
+- S3 + CloudFront  
 
-Build your site:
+If you are deploying to one of these platforms, you may find these guides helpful:
 
-```bash
-npm run build
+- [Netlify Contact Form Tutorial](/blog/netlify-contact-form-tutorial)  
+- [Cloudflare Pages Contact Form Tutorial](/blog/cloudflare-pages-contact-form-tutorial)  
+- [Add a Serverless Contact Form to GitHub Pages](/blog/add-serverless-contact-form-github-pages)
+
+---
+
+## Step 6 — Add spam protection
+
+Fabform includes built‑in spam filtering, but you can add an optional honeypot field:
+
+```html
+<input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
 ```
 
-Then deploy using your preferred platform.
+Bots fill this field.  
+Humans do not.  
+Fabform ignores submissions that include it.
 
-Your contact form will work immediately—no serverless functions, no backend code, no configuration.
+---
+
+## Troubleshooting
+
+### Form not submitting  
+Verify your `action` attribute:
+
+```
+https://fabform.io/f/your-form-id
+```
+
+### Not receiving notifications  
+Check your Fabform notification settings.
+
+### Using a component‑based layout  
+Ensure the form is not being rendered client‑side.
+
+---
+
+## Related Posts
+
+- [Astro Contact Form Without Serverless Functions](/blog/astro-contact-form-without-serverless)  
+- [Build an Astro Blog With a Fabform Contact Form](/blog/build-astro-blog-with-fabform-contact-form)  
+- [Netlify Forms Alternative for Static Sites](/blog/netlify-forms-alternative-static-sites)  
+- [Netlify Forms Not Working? Fix It Fast](/blog/netlify-forms-not-working-fix)
 
 ---
 
 ## Final Thoughts
 
-Astro’s HTML‑first approach pairs perfectly with Fabform’s zero‑backend form handling. Instead of wrestling with serverless functions or debugging Netlify Forms, you get:
-
-- A working contact form in minutes  
-- File upload support  
-- Strong spam protection  
-- Clean HTML  
-- Zero backend maintenance  
-- A one‑time payment model instead of subscriptions  
-
-If you’re building a static site with Astro, Fabform is the simplest and most reliable way to add a fully functional contact form.
-
+This Astro template gives you a clean starting point for any content‑driven site, with a fully functional contact form already integrated. If you want a consistent form workflow across Astro, Netlify, Cloudflare Pages, and GitHub Pages, Fabform provides a unified backend that works everywhere without serverless complexity.
 

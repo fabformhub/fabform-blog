@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-bvzihdzo> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Fabform Blog" href="https://blog.fabform.io/rss.xml"><meta name="generator" content="Astro v5.17.1"><!-- Font preloads --><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://blog.fabform.io/blog/cloudflare-pages-contact-form-tutorial/"><!-- Primary Meta Tags --><title>How to Set Up a Cloudflare Pages Site with a Backendless Contact Form</title><meta name="title" content="How to Set Up a Cloudflare Pages Site with a Backendless Contact Form"><meta name="description" content="Step-by-step beginner guide to creating a Cloudflare Pages website and adding a backendless contact form using Fabform."><!-- Privacy-friendly analytics by Plausible --><script async src="https://plausible.io/js/pa-eUpUk2tYkw3NjxEftxVvm.js"></script><script type="module">window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init();</script><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://blog.fabform.io/blog/cloudflare-pages-contact-form-tutorial/"><meta property="og:title" content="How to Set Up a Cloudflare Pages Site with a Backendless Contact Form"><meta property="og:description" content="Step-by-step beginner guide to creating a Cloudflare Pages website and adding a backendless contact form using Fabform."><meta property="og:image" content="https://blog.fabform.io/_astro/blog-placeholder-1.Bx0Zcyzv.jpg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.fabform.io/blog/cloudflare-pages-contact-form-tutorial/"><meta property="twitter:title" content="How to Set Up a Cloudflare Pages Site with a Backendless Contact Form"><meta property="twitter:description" content="Step-by-step beginner guide to creating a Cloudflare Pages website and adding a backendless contact form using Fabform."><meta property="twitter:image" content="https://blog.fabform.io/_astro/blog-placeholder-1.Bx0Zcyzv.jpg"><style>:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Atkinson;src:url(/fonts/atkinson-regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Atkinson;src:url(/fonts/atkinson-bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Atkinson,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:20px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:3.052em}h2{font-size:2.441em}h3{font-size:1.953em}h4{font-size:1.563em}h5{font-size:1.25em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media(max-width:720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}footer[data-astro-cid-sz7xmlte]{padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links[data-astro-cid-sz7xmlte]{display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{text-decoration:none;color:rgb(var(--gray))}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{color:rgb(var(--gray-dark))}a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;text-decoration:underline}header[data-astro-cid-3ef6ksr2]{margin:0;padding:0 1em;background:#fff;box-shadow:0 2px 8px rgba(var(--black),5%)}h2[data-astro-cid-3ef6ksr2]{margin:0;font-size:1em}h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2],h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none}nav[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none;border-bottom-color:var(--accent)}.social-links[data-astro-cid-3ef6ksr2],.social-links[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{display:flex}@media(max-width:720px){.social-links[data-astro-cid-3ef6ksr2]{display:none}}
+<!DOCTYPE html><html lang="en" data-astro-cid-bvzihdzo> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Fabform Blog" href="https://blog.fabform.io/rss.xml"><meta name="generator" content="Astro v5.17.1"><!-- Font preloads --><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://blog.fabform.io/blog/cloudflare-pages-contact-form-tutorial/"><!-- Primary Meta Tags --><title>Cloudflare Pages Contact Form Tutorial: Add a Backendless Form Without Workers</title><meta name="title" content="Cloudflare Pages Contact Form Tutorial: Add a Backendless Form Without Workers"><meta name="description" content="A complete guide to adding a contact form to a Cloudflare Pages site using Fabform, without Cloudflare Workers or serverless code."><!-- Privacy-friendly analytics by Plausible --><script async src="https://plausible.io/js/pa-eUpUk2tYkw3NjxEftxVvm.js"></script><script type="module">window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init();</script><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://blog.fabform.io/blog/cloudflare-pages-contact-form-tutorial/"><meta property="og:title" content="Cloudflare Pages Contact Form Tutorial: Add a Backendless Form Without Workers"><meta property="og:description" content="A complete guide to adding a contact form to a Cloudflare Pages site using Fabform, without Cloudflare Workers or serverless code."><meta property="og:image" content="https://blog.fabform.io/_astro/blog-placeholder-1.Bx0Zcyzv.jpg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.fabform.io/blog/cloudflare-pages-contact-form-tutorial/"><meta property="twitter:title" content="Cloudflare Pages Contact Form Tutorial: Add a Backendless Form Without Workers"><meta property="twitter:description" content="A complete guide to adding a contact form to a Cloudflare Pages site using Fabform, without Cloudflare Workers or serverless code."><meta property="twitter:image" content="https://blog.fabform.io/_astro/blog-placeholder-1.Bx0Zcyzv.jpg"><style>:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Atkinson;src:url(/fonts/atkinson-regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Atkinson;src:url(/fonts/atkinson-bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Atkinson,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:20px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:3.052em}h2{font-size:2.441em}h3{font-size:1.953em}h4{font-size:1.563em}h5{font-size:1.25em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media(max-width:720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}footer[data-astro-cid-sz7xmlte]{padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links[data-astro-cid-sz7xmlte]{display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{text-decoration:none;color:rgb(var(--gray))}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{color:rgb(var(--gray-dark))}a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;text-decoration:underline}header[data-astro-cid-3ef6ksr2]{margin:0;padding:0 1em;background:#fff;box-shadow:0 2px 8px rgba(var(--black),5%)}h2[data-astro-cid-3ef6ksr2]{margin:0;font-size:1em}h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2],h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none}nav[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none;border-bottom-color:var(--accent)}.social-links[data-astro-cid-3ef6ksr2],.social-links[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{display:flex}@media(max-width:720px){.social-links[data-astro-cid-3ef6ksr2]{display:none}}
 main[data-astro-cid-bvzihdzo]{width:calc(100% - 2em);max-width:100%;margin:0}.hero-image[data-astro-cid-bvzihdzo]{width:100%}.hero-image[data-astro-cid-bvzihdzo] img[data-astro-cid-bvzihdzo]{display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose[data-astro-cid-bvzihdzo]{width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title[data-astro-cid-bvzihdzo]{margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title[data-astro-cid-bvzihdzo] h1[data-astro-cid-bvzihdzo]{margin:0 0 .5em}.date[data-astro-cid-bvzihdzo]{margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on[data-astro-cid-bvzihdzo]{font-style:italic}
 </style></head> <body data-astro-cid-bvzihdzo> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <h2 data-astro-cid-3ef6ksr2><a href="/" data-astro-cid-3ef6ksr2>Fabform Blog</a></h2> <div class="internal-links" data-astro-cid-3ef6ksr2> <a href="https://fabform.io" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> ← Back to FabForm </a>  <a href="/" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> Home </a>  <a href="/blog" class="active" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> Blog </a>  </div> <!-- <div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
@@ -28,68 +28,154 @@ main[data-astro-cid-bvzihdzo]{width:calc(100% - 2em);max-width:100%;margin:0}.he
 					></path></svg
 				>
 			</a>
---> </nav> </header>  <main data-astro-cid-bvzihdzo> <article data-astro-cid-bvzihdzo> <div class="hero-image" data-astro-cid-bvzihdzo> <img src="/_astro/blog-placeholder-3.ijrf8Ohr_1S4sd1.webp" alt data-astro-cid-bvzihdzo="true" loading="lazy" decoding="async" fetchpriority="auto" width="1020" height="510"> </div> <div class="prose" data-astro-cid-bvzihdzo> <div class="title" data-astro-cid-bvzihdzo> <div class="date" data-astro-cid-bvzihdzo> <time datetime="2026-02-08T00:00:00.000Z"> Feb 8, 2026 </time>  </div> <h1 data-astro-cid-bvzihdzo>How to Set Up a Cloudflare Pages Site with a Backendless Contact Form</h1> <hr data-astro-cid-bvzihdzo> </div>  <h1 id="how-to-set-up-a-cloudflare-pages-site-with-a-backendless-contact-form">How to Set Up a Cloudflare Pages Site with a Backendless Contact Form</h1>
-<p>Cloudflare Pages makes it easy to host static websites with fast, global performance. In this guide, we’ll show you <strong>how to create a Cloudflare Pages site and add a fully functional, backendless contact form using Fabform</strong> — no servers required.</p>
-<hr>
-<h2 id="1-create-a-cloudflare-account">1. Create a Cloudflare Account</h2>
-<ol>
-<li>Go to <a href="https://dash.cloudflare.com/sign-up">https://dash.cloudflare.com/sign-up</a></li>
-<li>Create an account with your email and password</li>
-<li>Verify your email address</li>
-</ol>
-<hr>
-<h2 id="2-create-a-new-cloudflare-pages-project">2. Create a New Cloudflare Pages Project</h2>
-<ol>
-<li>Log in to Cloudflare</li>
-<li>Go to <strong>Pages → Create a project</strong></li>
-<li>Connect your GitHub account to Cloudflare Pages</li>
-<li>Select a repository for your site (you can create a new one or use an existing repo)</li>
-<li>Click <strong>Begin Setup</strong></li>
-</ol>
-<hr>
-<h2 id="3-configure-the-project">3. Configure the Project</h2>
-<ol>
-<li>
-<p>For a simple static site:</p>
+--> </nav> </header>  <main data-astro-cid-bvzihdzo> <article data-astro-cid-bvzihdzo> <div class="hero-image" data-astro-cid-bvzihdzo> <img src="/_astro/blog-placeholder-3.ijrf8Ohr_1S4sd1.webp" alt data-astro-cid-bvzihdzo="true" loading="lazy" decoding="async" fetchpriority="auto" width="1020" height="510"> </div> <div class="prose" data-astro-cid-bvzihdzo> <div class="title" data-astro-cid-bvzihdzo> <div class="date" data-astro-cid-bvzihdzo> <time datetime="2026-02-08T00:00:00.000Z"> Feb 8, 2026 </time>  </div> <h1 data-astro-cid-bvzihdzo>Cloudflare Pages Contact Form Tutorial: Add a Backendless Form Without Workers</h1> <hr data-astro-cid-bvzihdzo> </div>  <p>Cloudflare Pages is one of the fastest and most reliable platforms for hosting static sites. It offers global edge deployment, instant cache invalidation, and a smooth Git‑based workflow. However, Cloudflare Pages does not include built‑in form handling, and Cloudflare Workers can be overkill for something as simple as a contact form.</p>
+<p>A backendless form service like Fabform gives you a clean, reliable way to collect submissions without writing Workers, managing KV storage, or maintaining serverless code. With a single endpoint, you can add a fully functional contact form to any Cloudflare Pages site.</p>
+<p>If you are exploring other static‑site form setups, these guides may also help:</p>
 <ul>
-<li>Framework preset: <strong>None (Static Site)</strong></li>
-<li>Root directory: <code>/</code></li>
-<li>Build command: leave blank</li>
-<li>Output directory: leave blank</li>
+<li><a href="/blog/add-serverless-contact-form-github-pages">Add a Serverless Contact Form to GitHub Pages</a></li>
+<li><a href="/blog/netlify-contact-form-tutorial">Netlify Contact Form Tutorial</a></li>
+<li><a href="/blog/the-fastest-way-to-add-forms-to-static-sites">The Fastest Way to Add Forms to Static Sites</a></li>
 </ul>
-</li>
-<li>
-<p>Click <strong>Save and Deploy</strong></p>
-</li>
-</ol>
-<blockquote>
-<p>Cloudflare Pages will automatically build and deploy your site. You’ll get a URL like:<br>
-<code>https://your-site.pages.dev</code></p>
-</blockquote>
 <hr>
-<h2 id="4-add-your-html-files">4. Add Your HTML Files</h2>
+<h2 id="why-cloudflare-pages-needs-a-backendless-form-solution">Why Cloudflare Pages needs a backendless form solution</h2>
+<p>Cloudflare Pages is a pure static host. It does not provide:</p>
+<ul>
+<li>server‑side processing</li>
+<li>built‑in form handling</li>
+<li>email sending</li>
+<li>submission storage</li>
+</ul>
+<p>You can build a form backend using Cloudflare Workers, but that requires:</p>
+<ul>
+<li>writing JavaScript</li>
+<li>handling validation</li>
+<li>managing spam filtering</li>
+<li>storing submissions</li>
+<li>sending notifications</li>
+<li>maintaining code over time</li>
+</ul>
+<p>Fabform removes all of this complexity by providing:</p>
+<ul>
+<li>a secure form endpoint</li>
+<li>spam protection</li>
+<li>email, Slack, and webhook notifications</li>
+<li>a searchable dashboard</li>
+<li>CSV export</li>
+<li>GDPR‑friendly storage</li>
+</ul>
+<p>Your Cloudflare Pages site stays static.<br>
+Your form becomes fully functional.</p>
+<hr>
+<h2 id="step-1--create-your-fabform-endpoint">Step 1 — Create your Fabform endpoint</h2>
 <ol>
-<li>In your repository, create an <code>index.html</code> file</li>
-<li>Add your website HTML:</li>
+<li>Visit <a href="https://fabform.io">https://fabform.io</a></li>
+<li>Create a free account</li>
+<li>Select “Create New Form”</li>
+<li>Copy your unique form endpoint:</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;!</span><span style="color:#85E89D">DOCTYPE</span><span style="color:#B392F0"> html</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">html</span><span style="color:#B392F0"> lang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"en"</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">head</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">meta</span><span style="color:#B392F0"> charset</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"UTF-8"</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">title</span><span style="color:#E1E4E8">>My Cloudflare Pages Site&#x3C;/</span><span style="color:#85E89D">title</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">head</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>Welcome to My Site&#x3C;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>Contact me using the form below:&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>https://fabform.io/f/your-form-id</span></span></code></pre>
+<p>If you want to compare Fabform with other services, see:<br>
+<a href="/blog/fabform-vs-formspree">Fabform vs Formspree</a></p>
+<hr>
+<h2 id="step-2--add-your-form-to-your-cloudflare-pages-site">Step 2 — Add your form to your Cloudflare Pages site</h2>
+<p>Open your contact page and insert the following HTML:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">form</span><span style="color:#B392F0"> action</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"https://fabform.io/f/your-form-id"</span><span style="color:#B392F0"> method</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"POST"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text"</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"name"</span><span style="color:#B392F0"> placeholder</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Your Name"</span><span style="color:#B392F0"> required</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"email"</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"email"</span><span style="color:#B392F0"> placeholder</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Your Email"</span><span style="color:#B392F0"> required</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">textarea</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"message"</span><span style="color:#B392F0"> placeholder</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Your Message"</span><span style="color:#B392F0"> required</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">textarea</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"submit"</span><span style="color:#E1E4E8">>Send Message&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">form</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p>This works with:</p>
+<ul>
+<li>plain HTML</li>
+<li>Astro</li>
+<li>Hugo</li>
+<li>Jekyll</li>
+<li>Eleventy</li>
+<li>SvelteKit (static export)</li>
+<li>Next.js (static export)</li>
+</ul>
+<p>If you are using Astro specifically, see:<br>
+<a href="/blog/astro-contact-form-without-serverless">Astro Contact Form Without Serverless Functions</a></p>
+<hr>
+<h2 id="step-3--deploy-to-cloudflare-pages">Step 3 — Deploy to Cloudflare Pages</h2>
+<p>Push your site to GitHub.<br>
+In Cloudflare Pages:</p>
+<ol>
+<li>Create a new project</li>
+<li>Connect your repository</li>
+<li>Select your build command and output directory</li>
+<li>Deploy</li>
+</ol>
+<p>Your form is now live.</p>
+<hr>
+<h2 id="step-4--test-your-form">Step 4 — Test your form</h2>
+<p>Visit your deployed site and submit a test message.<br>
+You will see the submission appear instantly in your Fabform dashboard.</p>
+<hr>
+<h2 id="step-5--enable-notifications">Step 5 — Enable notifications</h2>
+<p>Fabform supports:</p>
+<ul>
+<li>Email notifications</li>
+<li>Slack notifications</li>
+<li>Discord notifications</li>
+<li>Webhooks for automation tools</li>
+</ul>
+<p>If you want to explore alternatives to platform‑specific form systems, see:<br>
+<a href="/blog/netlify-forms-alternative-static-sites">Netlify Forms Alternative for Static Sites</a></p>
+<hr>
+<h2 id="step-6--add-spam-protection">Step 6 — Add spam protection</h2>
+<p>Fabform includes built‑in spam filtering, but you can add an optional honeypot field:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text"</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"website"</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"display:none"</span><span style="color:#B392F0"> tabindex</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"-1"</span><span style="color:#B392F0"> autocomplete</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"off"</span><span style="color:#E1E4E8"> /></span></span></code></pre>
+<p>Bots fill this field.<br>
+Humans do not.<br>
+Fabform ignores submissions that include it.</p>
+<hr>
+<h2 id="step-7--style-your-form">Step 7 — Style your form</h2>
+<p>Cloudflare Pages supports any CSS approach.<br>
+Here is a simple example:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">form</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  max-width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">500</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  margin</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">rem</span><span style="color:#79B8FF"> auto</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">flex</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  flex-direction</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">column</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  gap</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">form</span><span style="color:#B392F0"> action</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"https://fabform.com/YOUR_PROJECT_KEY"</span><span style="color:#B392F0"> method</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"POST"</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text"</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"name"</span><span style="color:#B392F0"> placeholder</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Your Name"</span><span style="color:#B392F0"> required</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"email"</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"email"</span><span style="color:#B392F0"> placeholder</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Your Email"</span><span style="color:#B392F0"> required</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">textarea</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"message"</span><span style="color:#B392F0"> placeholder</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Your Message"</span><span style="color:#B392F0"> required</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">textarea</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"submit"</span><span style="color:#E1E4E8">>Send&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">form</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">html</span><span style="color:#E1E4E8">></span></span></code></pre>  </div> </article> </main> <footer data-astro-cid-sz7xmlte>
+<span class="line"><span style="color:#85E89D">input</span><span style="color:#E1E4E8">, </span><span style="color:#85E89D">textarea</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  padding</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.75</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #ccc</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border-radius</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">6</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#85E89D">button</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  padding</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.75</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#fff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">none</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border-radius</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">6</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  cursor</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">pointer</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<hr>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="form-not-submitting">Form not submitting</h3>
+<p>Verify your <code>action</code> attribute:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>https://fabform.io/f/your-form-id</span></span></code></pre>
+<h3 id="not-receiving-notifications">Not receiving notifications</h3>
+<p>Check your Fabform notification settings.</p>
+<h3 id="using-cloudflare-workers">Using Cloudflare Workers</h3>
+<p>Workers are optional. Fabform replaces the need for them entirely.</p>
+<hr>
+<h2 id="related-posts">Related Posts</h2>
+<ul>
+<li><a href="/blog/add-serverless-contact-form-github-pages">Add a Serverless Contact Form to GitHub Pages</a></li>
+<li><a href="/blog/netlify-contact-form-tutorial">Netlify Contact Form Tutorial</a></li>
+<li><a href="/blog/astro-contact-form-without-serverless">Astro Contact Form Without Serverless Functions</a></li>
+<li><a href="/blog/netlify-forms-not-working-fix">Netlify Forms Not Working? Fix It Fast</a></li>
+</ul>
+<hr>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Cloudflare Pages is one of the best platforms for deploying static sites at global scale. By pairing it with a backendless form service, you avoid the overhead of Workers while gaining a dependable way to collect submissions. If you want a consistent form workflow across Cloudflare Pages, Netlify, GitHub Pages, and other static hosts, Fabform provides a unified approach that works everywhere.</p>  </div> </article> </main> <footer data-astro-cid-sz7xmlte>
 &copy; 2026 FabForm . All rights reserved.
 <div class="social-links" data-astro-cid-sz7xmlte> <!--		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
